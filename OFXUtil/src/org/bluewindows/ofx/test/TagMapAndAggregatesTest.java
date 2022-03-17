@@ -110,7 +110,6 @@ public class TagMapAndAggregatesTest extends TestCase {
 			}
 		}
 	}
-	
 
 	protected void checkSetters(Class<? extends AbstractAggregate> aggregateClass) throws Exception {
 		//Use reflection to test all the setters in the aggregate to verify they check for duplicate set calls
