@@ -186,14 +186,18 @@ public class OFXStatementTrans extends AbstractAggregate {
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
 		writeLine(bw, "<TRNTYPE>" + transType.toString());
-		writeLine(bw, "<DTPOSTED>" + DATE_TIME_FORMAT.format(datePosted));
+		if (!datePosted.equals(Constants.MISSING_DATE_TIME)) {
+			writeLine(bw, "<DTPOSTED>" + DATE_TIME_FORMAT.format(datePosted));
+		}
 		if (!dateUser.equals(Constants.MISSING_DATE_TIME)) {
 			writeLine(bw, "<DTUSER>" + DATE_TIME_FORMAT.format(dateUser));
 		}
 		if (!dateAvail.equals(Constants.MISSING_DATE_TIME)) {
 			writeLine(bw, "<DTAVAIL>" + DATE_TIME_FORMAT.format(dateAvail));
 		}
-		writeLine(bw, "<TRNAMT>" + MONEY_FORMAT.format(amount));
+		if (!amount.equals(Constants.MISSING_AMOUNT)) {
+			writeLine(bw, "<TRNAMT>" + MONEY_FORMAT.format(amount));
+		}
 		if (!fitID.isBlank()) {
 			writeLine(bw, "<FITID>" + fitID);
 		}
@@ -206,7 +210,9 @@ public class OFXStatementTrans extends AbstractAggregate {
 		if (!serverTranID.isBlank()) {
 			writeLine(bw, "<SRVRTID>" + serverTranID);
 		}
-		writeLine(bw, "<NAME>" + name);
+		if (!name.isBlank()) {
+			writeLine(bw, "<NAME>" + name);
+		}
 		if (!memo.isBlank()) {
 			writeLine(bw, "<MEMO>" + memo);
 		}
@@ -223,6 +229,4 @@ public class OFXStatementTrans extends AbstractAggregate {
 			writeLine(bw, "<PAYEEID>" + payeeID);
 		}
 	}
-	
-
 }

@@ -36,3 +36,6 @@ To add a new aggregate to a mapping:
   
   3) Add the new aggregate to the createInstance method in the TagMapsAndAggregatesTest unit test 
      and run the test to validate your tagmap changes and the aggregate.
+     
+## Build
+Use the build.xml Ant script to build a working jar file of the project.
