@@ -198,34 +198,34 @@ public class OFXStatementTrans extends AbstractAggregate {
 		if (!amount.equals(Constants.MISSING_AMOUNT)) {
 			writeLine(bw, "<TRNAMT>" + MONEY_FORMAT.format(amount));
 		}
-		if (!fitID.isBlank()) {
+		if (!fitID.isEmpty()) {
 			writeLine(bw, "<FITID>" + fitID);
 		}
-		if (!correctFitID.isBlank()) {
+		if (!correctFitID.isEmpty()) {
 			writeLine(bw, "<CORRECTFITID>" + correctFitID);
 		}
 		if (!correctAction.equals(OFXCorrectActionType.MISSING)) {
 			writeLine(bw, "<CORRECTACTION>" + correctAction.toString());
 		}
-		if (!serverTranID.isBlank()) {
+		if (!serverTranID.isEmpty()) {
 			writeLine(bw, "<SRVRTID>" + serverTranID);
 		}
-		if (!name.isBlank()) {
+		if (!name.isEmpty()) {
 			writeLine(bw, "<NAME>" + name);
 		}
-		if (!memo.isBlank()) {
+		if (!memo.isEmpty()) {
 			writeLine(bw, "<MEMO>" + memo);
 		}
-		if (!checkNum.isBlank()) {
+		if (!checkNum.isEmpty()) {
 			writeLine(bw, "<CHECKNUM>" + checkNum);
 		}
-		if (!refNum.isBlank()) {
+		if (!refNum.isEmpty()) {
 			writeLine(bw, "<REFNUM>" + refNum);
 		}
 		if (!stdIndustrialCode.equals(Constants.MISSING_INTEGER)) {
 			writeLine(bw, "<SIC>" + stdIndustrialCode);
 		}
-		if (!payeeID.isBlank()) {
+		if (!payeeID.isEmpty()) {
 			writeLine(bw, "<PAYEEID>" + payeeID);
 		}
 	}

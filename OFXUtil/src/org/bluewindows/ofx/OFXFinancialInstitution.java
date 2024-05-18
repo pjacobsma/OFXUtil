@@ -46,8 +46,8 @@ public class OFXFinancialInstitution extends AbstractAggregate {
 	}
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
-		if (org.isBlank()) org = "ORG";
-		if (fid.isBlank()) fid = "1234";
+		if (org.isEmpty()) org = "ORG";
+		if (fid.isEmpty()) fid = "1234";
 		writeLine(bw, "<ORG>" + org);
 		writeLine(bw, "<FID>" + fid);
 	}

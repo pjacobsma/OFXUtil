@@ -58,7 +58,7 @@ public class HandleLocalDateTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid date value: [xxx] found in <DTSTART> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid date value: [xxx] found in <DTSTART> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 	
@@ -69,7 +69,7 @@ public class HandleLocalDateTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid date value: [2009010] found in <DTSTART> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid date value: [2009010] found in <DTSTART> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 

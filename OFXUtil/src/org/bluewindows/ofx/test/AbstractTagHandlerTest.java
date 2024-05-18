@@ -88,7 +88,7 @@ public class AbstractTagHandlerTest extends TestCase {
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("IO Error occurred retrieving " + tag.getName() + " tag content at record 1, column 0.", e.getMessage());
+			assertEquals("IO Error occurred retrieving " + tag.getName() + " tag content at record 1, column 0.", e.getLocalizedMessage());
 		}
 	}
 	public void testGetTagContentMissingContent() throws Exception {
@@ -99,7 +99,7 @@ public class AbstractTagHandlerTest extends TestCase {
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Missing content for <TAG> tag at record 1, column 0.", e.getMessage());
+			assertEquals("Missing content for <TAG> tag at record 1, column 0.", e.getLocalizedMessage());
 		}
 	}
 	
@@ -124,7 +124,7 @@ public class AbstractTagHandlerTest extends TestCase {
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof IllegalArgumentException);
-			assertTrue(e.getMessage().contains("There is no setBogusMethod method"));
+			assertTrue(e.getLocalizedMessage().contains("There is no setBogusMethod method"));
 		}
 	}
 }

@@ -56,7 +56,7 @@ public class HandleACCTTYPETest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid Account Type: [badAcctType] found in <ACCTTYPE> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid Account Type: [badAcctType] found in <ACCTTYPE> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

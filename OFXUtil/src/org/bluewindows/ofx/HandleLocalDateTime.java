@@ -21,7 +21,9 @@
 package org.bluewindows.ofx;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class HandleLocalDateTime extends AbstractTagHandler {
@@ -42,8 +44,13 @@ public class HandleLocalDateTime extends AbstractTagHandler {
 
 	public LocalDateTime convertContentToObject(String contentString, Tag tag, OFXParser parser) throws ParseException {
 		if (contentString.length() < 14){
-			throw new ParseException("Invalid date-time value: [" + contentString + "] found in " +
-				tag.getName() + " tag" + parser.getContentPosition(),0);
+			if (contentString.length() == 8) {
+				LocalDate date =  HandleLocalDate.INSTANCE.convertContentToObject(contentString, tag, parser);
+				return LocalDateTime.of(date, LocalTime.MIN);
+			}else {
+				throw new ParseException("Invalid date-time value: [" + contentString + "] found in " +
+						tag.getName() + " tag" + parser.getContentPosition(),0);
+			}
 		} else if (contentString.length() > 14){
 			contentString = contentString.substring(0, 14);
 		}

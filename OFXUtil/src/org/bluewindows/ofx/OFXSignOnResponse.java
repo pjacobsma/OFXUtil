@@ -119,19 +119,19 @@ public class OFXSignOnResponse extends AbstractAggregate {
 		if (!dateOfLastProfUpdate.equals(Constants.MISSING_DATE_TIME)) {
 			writeLine(bw, "<DTPROFUP>" + dateOfLastProfUpdate.format(DATE_TIME_FORMAT));
 		}
-		if (!userKey.isBlank()) {
+		if (!userKey.isEmpty()) {
 			writeLine(bw, "<USERKEY>" + userKey);
 		}
 		if (!tsKeyExpire.equals(Constants.MISSING_DATE_TIME)) {
 			writeLine(bw, "<TSKEYEXPIRE>" + tsKeyExpire.format(DATE_TIME_FORMAT));
 		}
-		if (!sessionCookie.isBlank()) {
+		if (!sessionCookie.isEmpty()) {
 			writeLine(bw, "<SESSCOOKIE>" + sessionCookie);
 		}
-		if (!accessKey.isBlank()) {
+		if (!accessKey.isEmpty()) {
 			writeLine(bw, "<ACCESSKEY>" + accessKey);
 		}
-		if (!language.isBlank()) {
+		if (!language.isEmpty()) {
 			writeLine(bw, "<LANGUAGE>" + language);
 		}
 		financialInstitution.export(bw);

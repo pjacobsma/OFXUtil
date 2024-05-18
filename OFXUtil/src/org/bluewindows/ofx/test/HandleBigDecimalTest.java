@@ -58,7 +58,7 @@ public class HandleBigDecimalTest extends TagHandlerTestCase {
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid BigDecimal value: [xxx] found in <BIGDECIMAL> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid BigDecimal value: [xxx] found in <BIGDECIMAL> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

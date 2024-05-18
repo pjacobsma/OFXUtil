@@ -56,7 +56,7 @@ public class HandleOFXTransTypeTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid Transaction Type: [badTranType] found in <OFXTRANSTYPE> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid Transaction Type: [badTranType] found in <OFXTRANSTYPE> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

@@ -58,7 +58,7 @@ public class HandleBigIntegerTest extends TagHandlerTestCase {
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid BigInteger value: [xxx] found in <BIGINTEGER> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid BigInteger value: [xxx] found in <BIGINTEGER> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

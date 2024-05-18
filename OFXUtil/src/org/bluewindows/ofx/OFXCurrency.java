@@ -54,7 +54,7 @@ public class OFXCurrency extends AbstractAggregate {
 		if (!currRate.equals(Constants.MISSING_AMOUNT)) {
 			writeLine(bw, "<CURRATE>" + MONEY_FORMAT.format(currRate));
 		}
-		if (!currSym.isBlank()) {
+		if (!currSym.isEmpty()) {
 			writeLine(bw, "<CURSYM>" + currSym);
 		}
 	}

@@ -54,7 +54,7 @@ public class HandleOFXCorrectActionTypeTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid correct action value: [badaction] found in <OFXCORRECTACTIONTYPE> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid correct action value: [badaction] found in <OFXCORRECTACTIONTYPE> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

@@ -61,12 +61,12 @@ public class OFXCardAcctFrom extends AbstractAggregate {
 
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
-		if (acctID.isBlank()) acctID = "1";
+		if (acctID.isEmpty()) acctID = "1";
 		writeLine(bw, "<ACCTID>" + acctID);
 		if (!accountType.equals(OFXAccountType.MISSING)) {
 			writeLine(bw, "<ACCTTYPE>" + accountType.toString());
 		}
-		if (!acctKey.isBlank()) {
+		if (!acctKey.isEmpty()) {
 			writeLine(bw, "<ACCTKEY>" + acctKey);
 		}
 	}

@@ -40,7 +40,7 @@ public class AbstractTagMapTest extends TestCase {
 			tagMap.addTag("<TAG>", "String", "Aggregate", "setString");
 			fail();
 		} catch (IllegalArgumentException e) {
-			assertEquals("Duplicate tag definition for tag <TAG> with target object Aggregate in tag map.", e.getMessage());
+			assertEquals("Duplicate tag definition for tag <TAG> with target object Aggregate in tag map.", e.getLocalizedMessage());
 		}
 	}
 	

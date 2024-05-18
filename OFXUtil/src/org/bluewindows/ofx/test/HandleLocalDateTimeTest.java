@@ -51,6 +51,19 @@ public class HandleLocalDateTimeTest extends TagHandlerTestCase{
 		}
 	}
 	
+	public void testHandleDateWithoutTime() throws Exception{
+		String dateString = "20090102";
+		initialize(dateString + "</OFX>");
+		LocalDateTime expectedDate = LocalDateTime.parse("20090102000000", DTF);
+		try {
+			handler.handle(parser, response, tag);
+			assertEquals(expectedDate, response.getServerDate());
+		} catch (Exception e) {
+			fail();
+		}
+	}
+
+	
 	public void testHandleNonNumericDate() throws Exception {
 		initialize("xxx</OFX>");
 		try {
@@ -58,7 +71,7 @@ public class HandleLocalDateTimeTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid date-time value: [xxx] found in <DTSERVER> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid date-time value: [xxx] found in <DTSERVER> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 	
@@ -69,7 +82,7 @@ public class HandleLocalDateTimeTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid date-time value: [2009010] found in <DTSERVER> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid date-time value: [2009010] found in <DTSERVER> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 

@@ -54,7 +54,7 @@ public class HandleOFXSeverityTypeTest extends TagHandlerTestCase{
 			fail();
 		} catch (Exception e) {
 			assertTrue(e instanceof ParseException);
-			assertEquals("Invalid Severity Type: [badseverity] found in <OFXSEVERITYTYPE> tag at record 1, column 1.", e.getMessage());
+			assertEquals("Invalid Severity Type: [badseverity] found in <OFXSEVERITYTYPE> tag at record 1, column 1.", e.getLocalizedMessage());
 		}
 	}
 }

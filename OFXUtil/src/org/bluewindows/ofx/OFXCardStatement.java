@@ -93,7 +93,7 @@ public class OFXCardStatement extends AbstractAggregate {
 
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
-		if (curDef.isBlank()) curDef = Currency.getInstance(Locale.getDefault()).getCurrencyCode();
+		if (curDef.isEmpty()) curDef = Currency.getInstance(Locale.getDefault()).getCurrencyCode();
 		writeLine(bw, "<CURDEF>" + curDef);
 		cardAcctFrom.export(bw);
 		bankTransList.export(bw);
@@ -103,7 +103,7 @@ public class OFXCardStatement extends AbstractAggregate {
 		if (!availableBalance.getAmount().equals(Constants.MISSING_AMOUNT)) {
 			availableBalance.export(bw);
 		}
-		if (!marketingInfo.isBlank()) {
+		if (!marketingInfo.isEmpty()) {
 			writeLine(bw, "<MKTGINFO>" + marketingInfo + "<\\MKTGINFO>");
 		}		
 	}

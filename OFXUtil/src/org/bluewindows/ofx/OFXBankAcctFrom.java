@@ -82,9 +82,9 @@ public class OFXBankAcctFrom extends AbstractAggregate {
 
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
-		if (bankID.isBlank()) bankID = "1";
+		if (bankID.isEmpty()) bankID = "1";
 		writeLine(bw, "<BANKID>" + bankID);
-		if (acctID.isBlank()) acctID = "1";
+		if (acctID.isEmpty()) acctID = "1";
 		writeLine(bw, "<ACCTID>" + acctID);
 		if (!accountType.equals(OFXAccountType.MISSING)) {
 			writeLine(bw, "<ACCTTYPE>" + accountType.toString());

@@ -60,7 +60,7 @@ public class OFXBankStatementResponse extends AbstractAggregate {
 
 	@Override
 	protected void exportContent(BufferedWriter bw) throws IOException {
-		if (transUID.isBlank()) transUID = "0";
+		if (transUID.isEmpty()) transUID = "0";
 		writeLine(bw, "<TRNUID>" + transUID);
 		status.export(bw);
 		for (OFXBankStatement statement : statements) {
